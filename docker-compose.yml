@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  lexer_python_sdk_local_dev:
+    image: lexer/python_sdk/local_dev
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.sdk-local-dev
+    volumes:
+      - .:/lexer
+      - $HOME/.aws:/root/.aws:ro
+      # - $HOME/.lexer_config.toml:/root/.lexer_config.toml
+    profiles: ["dev"]
+  lexer_python_sdk_ci:
+    image: lexer/python_sdk/ci
+    build:
+      context: .
+      dockerfile: infra/Dockerfile.sdk-ci
+    volumes:
+      - .:/app
+      - $HOME/.aws:/root/.aws:ro

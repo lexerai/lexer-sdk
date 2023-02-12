@@ -1,0 +1,24 @@
+# set base image
+FROM public.ecr.aws/docker/library/python:3.10
+
+# WORKDIR
+ENV APP_HOME=/lexer
+RUN mkdir -p $APP_HOME
+
+# set the working directory in the container
+WORKDIR $APP_HOME
+
+# set the environment (to be parsed by the underlying app)
+# must be either one of only {dev, staging, production}
+ENV LEXER_ENVIRONMENT=dev
+
+RUN apt-get update
+
+# Copy the source files to the working directory
+COPY . .
+
+# Install requirements.txt from the SDK requirements.txt for now.
+RUN pip install -r sdk/lexer/infra/requirements.txt
+
+# Run the API stack
+CMD [ "./ci/run_lint_python.sh" ]
