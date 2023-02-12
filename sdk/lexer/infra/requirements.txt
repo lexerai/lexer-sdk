@@ -1,0 +1,17 @@
+# pip requirements for development work.
+# must match whatever that we have in setup.py
+black==23.1.0
+click==8.1.3
+colorama==0.4.6
+flake8==6.0.0
+isort==5.12.0
+mypy==0.950
+numpy==1.23.0
+onnx==1.13.0
+onnxruntime==1.13.1
+pydantic==1.10.4
+tf2onnx==1.13.0
+tomlkit==0.11.6
+torch==1.13.1
+torchaudio==0.13.1
+torchvision==0.14.1
