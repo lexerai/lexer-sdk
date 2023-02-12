@@ -1,0 +1,30 @@
+steps:
+  - group: ":lint-roller: Lint"
+    key: "linters"
+    steps:
+      - label: ":lint-roller: Lint .sh scripts"
+        plugins:
+        - shellcheck#v1.3.0:
+            files: ./**/*.sh
+      - label: ":lint-roller: Lint python scripts"
+        plugins:
+        - docker-compose#v4.9.0:
+            run: lexer_python_sdk_ci
+  - group: ":package: Build"
+    key: "build"
+    steps:
+      # Prebuild the app image, upload it to a registry for later steps
+      - label: ":docker: Build"
+        command: "echo building_docker"
+  
+  - wait
+  
+  - group: ":sparkles: Test!"
+    key: "test"
+    steps:
+      - label: ":sparkles: Test"
+        command: "echo canvas_api_test"
+        # plugins:
+        #   - docker-compose#v3.0.3:
+        #       build: app
+        #       image-repository: index.docker.io/org/repo

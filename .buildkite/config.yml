@@ -1,0 +1,3 @@
+version: 1
+pipelines:
+  - path: ".buildkite/pipeline.yml"
