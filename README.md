@@ -1,6 +1,6 @@
 # Lexer Python SDK
 
-[![Build status](https://badge.buildkite.com/b9df0354cc5093b82d30c8288acb624ca7739986dd8e2035b1.svg)](https://buildkite.com/lexerai/lexer-sdk)
+[![Build status](https://badge.buildkite.com/3829068f2e76b2a013ff2d1a3154a9bf45aa69b40bf9da2da6.svg)](https://buildkite.com/lexerai/lexer-sdk)
 
 ## Introduction
 
